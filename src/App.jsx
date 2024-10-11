@@ -77,6 +77,73 @@ function App() {
       <Button variant="contained" color="primary" onClick={handleAddDialogOpen}>
         Add User
       </Button>
+      
+      <Dialog open={openAddDialog} onClose={handleAddDialogClose}>
+        <DialogTitle>Add New User</DialogTitle>
+        <DialogContent>
+          <TextField
+            autoFocus
+            margin="dense"
+            label="Name"
+            type="text"
+            fullWidth
+            variant="outlined"
+            value={newUser.name}
+            onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
+          />
+          <TextField
+            margin="dense"
+            label="Email"
+            type="email"
+            fullWidth
+            variant="outlined"
+            value={newUser.email}
+            onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleAddDialogClose} color="secondary">
+            Cancel
+          </Button>
+          <Button onClick={handleAddUser} color="primary">
+            Add
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      <Dialog open={openEditDialog} onClose={handleEditDialogClose}>
+        <DialogTitle>Edit User</DialogTitle>
+        <DialogContent>
+          <TextField
+            autoFocus
+            margin="dense"
+            label="Name"
+            type="text"
+            fullWidth
+            variant="outlined"
+            value={updateUser.name}
+            onChange={(e) => setUpdateUser({ ...updateUser, name: e.target.value })}
+          />
+          <TextField
+            margin="dense"
+            label="Email"
+            type="email"
+            fullWidth
+            variant="outlined"
+            value={updateUser.email}
+            onChange={(e) => setUpdateUser({ ...updateUser, email: e.target.value })}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleEditDialogClose} color="secondary">
+            Cancel
+          </Button>
+          <Button onClick={handleUpdateUser} color="primary">
+            Update
+          </Button>
+        </DialogActions>
+      </Dialog>
+
           </div>
       </>
   )
