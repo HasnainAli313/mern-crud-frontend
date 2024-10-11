@@ -69,9 +69,16 @@ function App() {
       })
       .catch((err) => console.error(err));
   };
-  
-  return (
 
+  return (
+      <>
+          <div className="p-6">
+          <h1 className="text-2xl font-bold mb-4 text-center">Student Management System</h1>
+      <Button variant="contained" color="primary" onClick={handleAddDialogOpen}>
+        Add User
+      </Button>
+          </div>
+      </>
   )
 }
 
