@@ -33,6 +33,22 @@ function App() {
     setOpenEditDialog(true);
   };
 
+  const handleEditDialogClose = () => {
+    setOpenEditDialog(false);
+    setUpdateUser({ id: "", name: "", email: "" });
+  };
+
+  const handleAddUser = () => {
+    axios
+      .post(API_URL, newUser)
+      .then((response) => {
+        setUsers([...users, response.data]);
+        setNewUser({ name: "", email: "" }); // Reset input
+        fetchUsers();
+        handleAddDialogClose();
+      })
+      .catch((err) => console.error(err));
+  };
 
   return (
 
