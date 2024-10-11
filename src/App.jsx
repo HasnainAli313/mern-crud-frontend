@@ -14,8 +14,24 @@ function App() {
     const response = await axios.get(API_URL);
     const content = response.data;
 
-    setUsers(content.data);
+    setUsers(content.data);    
   }
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  const handleAddDialogOpen = () => {
+    setOpenAddDialog(true);
+  };
+
+  const handleAddDialogClose = () => {
+    setOpenAddDialog(false);
+  };
+
+  const handleEditDialogOpen = (user) => {
+    setUpdateUser(user);
+    setOpenEditDialog(true);
+  };
 
 
   return (
