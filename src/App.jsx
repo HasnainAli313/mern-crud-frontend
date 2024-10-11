@@ -50,6 +50,26 @@ function App() {
       .catch((err) => console.error(err));
   };
 
+  const handleUpdateUser = () => {
+    axios
+      .put(`${API_URL}/${updateUser.id}`, { name: updateUser.name, email: updateUser.email })
+      .then((response) => {
+        setUsers(users.map((user) => (user.id === updateUser.id ? response.data : user)));
+        fetchUsers();
+        handleEditDialogClose();
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const deleteUserById = (id) => {
+    axios
+      .delete(`${API_URL}/${id}`)
+      .then(() => {
+        setUsers(users.filter((user) => user.id !== id));
+      })
+      .catch((err) => console.error(err));
+  };
+  
   return (
 
   )
