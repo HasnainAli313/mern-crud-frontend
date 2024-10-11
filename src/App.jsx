@@ -10,7 +10,16 @@ function App() {
   const [openAddDialog, setOpenAddDialog] = useState(false);
   const [openEditDialog, setOpenEditDialog] = useState(false);
 
+  async function fetchUsers() {
+    const response = await axios.get(API_URL);
+    const content = response.data;
+
+    setUsers(content.data);
+  }
+
+
   return (
+
   )
 }
 
