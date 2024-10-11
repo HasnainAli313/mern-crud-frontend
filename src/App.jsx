@@ -10,6 +10,8 @@ function App() {
   const [openAddDialog, setOpenAddDialog] = useState(false);
   const [openEditDialog, setOpenEditDialog] = useState(false);
 
+  const API_URL = "https://mern-crud-backend-nu.vercel.app//api/users";
+
   async function fetchUsers() {
     const response = await axios.get(API_URL);
     const content = response.data;
