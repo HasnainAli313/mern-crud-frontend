@@ -143,6 +143,38 @@ function App() {
           </Button>
         </DialogActions>
       </Dialog>
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>User Name</TableCell>
+              <TableCell>User Email</TableCell>
+              <TableCell>Actions</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {users.map((user) => (
+              <TableRow key={user.id}>
+                <TableCell>{user.name}</TableCell>
+                <TableCell>{user.email}</TableCell>
+                <TableCell>
+                  <Button
+                    variant="outlined"
+                    color="primary"
+                    onClick={() => handleEditDialogOpen(user)}
+                    className="mr-2"
+                  >
+                    Edit
+                  </Button>
+                  <Button variant="outlined" color="error" onClick={() => deleteUserById(user.id)}>
+                    Delete
+                  </Button>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>  
+        </Table>
+      </TableContainer>
 
           </div>
       </>
